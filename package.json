@@ -1,0 +1,40 @@
+{
+  "name": "pflx-class-tools",
+  "version": "1.0.0",
+  "description": "Student Grouping & Randomizer Widget",
+  "homepage": "/",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "cp -f public/students.csv public/static/media/students.csv 2>/dev/null || mkdir -p public/static/media && cp -f public/students.csv public/static/media/students.csv 2>/dev/null || echo 'CSV setup complete'", 
+    "start": "react-scripts start",
+    "build": "react-scripts build && cp -f public/students.csv build/students.csv && cp -f public/template.csv build/template.csv && mkdir -p build/static/media && cp -f public/students.csv build/static/media/students.csv",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "papaparse": "^5.4.1",
+    "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
+    "react-scripts": "5.0.1",
+    "tailwindcss": "^3.3.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFLX Widget Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    /* PFLX Class Tools Widget (16:6 Aspect Ratio) */
+    .pflx-embed-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 37.5%; /* 6/16 = 0.375 or 37.5% */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .pflx-embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>PFLX Widget Test Page</h1>
+  <p>This is a simple test page to verify that the PFLX Class Tools widget works correctly when embedded.</p>
+  
+  <div class="pflx-embed-container">
+    <iframe 
+      src="http://localhost:3000/?embed=true" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
+  </div>
+  
+  <p>If the widget above is working correctly, you should see the PFLX Class Tools application embedded with a 16:6 aspect ratio.</p>
+  <p>Make sure you've started the local server by running <code>./serve.sh</code> in your terminal.</p>
+</body>
+</html>

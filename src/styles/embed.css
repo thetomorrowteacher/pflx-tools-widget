@@ -1,0 +1,93 @@
+/* Styles for embedded mode */
+
+/* When in embedded mode, apply special styling */
+body.embedded {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #080e24;
+  background: linear-gradient(135deg, #0c1445 0%, #06101f 100%);
+  color: var(--text-color);
+}
+
+/* Container for embedded content maintains 16:6 aspect ratio */
+.embed-container {
+  width: 100%;
+  position: relative;
+  padding-bottom: 37.5%; /* 6/16 = 0.375 or 37.5% for 16:6 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+/* Make content fill the container */
+.embed-container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Adjustments for embedded mode UI */
+body.embedded .app-container {
+  background: transparent;
+}
+
+body.embedded .app-container::after {
+  opacity: 0.3;
+}
+
+body.embedded .title {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  background: linear-gradient(to right, var(--primary-light), var(--secondary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 6px rgba(0, 204, 255, 0.5));
+}
+
+body.embedded .subtitle {
+  font-size: 0.9rem;
+  color: var(--light-text);
+  text-shadow: 0 0 6px rgba(152, 181, 211, 0.3);
+}
+
+body.embedded .class-card,
+body.embedded .team-column,
+body.embedded .student-display {
+  background: var(--glass-background);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-color);
+}
+
+body.embedded .button {
+  background: linear-gradient(135deg, rgba(0, 204, 255, 0.2), rgba(191, 0, 255, 0.2));
+  border: 1px solid var(--card-border);
+  text-shadow: 0 0 5px rgba(0, 204, 255, 0.4);
+}
+
+body.embedded .button:hover {
+  background: linear-gradient(135deg, rgba(0, 204, 255, 0.3), rgba(191, 0, 255, 0.3));
+  box-shadow: var(--glow-shadow);
+}
+
+body.embedded .team-button {
+  background: linear-gradient(135deg, rgba(0, 204, 255, 0.2), rgba(0, 166, 207, 0.2));
+  text-shadow: 0 0 5px rgba(0, 204, 255, 0.4);
+}
+
+body.embedded .randomizer-button {
+  background: linear-gradient(135deg, rgba(191, 0, 255, 0.2), rgba(255, 0, 170, 0.2));
+  text-shadow: 0 0 5px rgba(191, 0, 255, 0.4);
+}
+
+body.embedded h1, 
+body.embedded h2, 
+body.embedded h3 {
+  color: var(--bright-text);
+  text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
+}

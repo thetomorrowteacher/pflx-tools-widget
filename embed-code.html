@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFLX Class Tools - Embed Code</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+    
+    h1, h2, h3 {
+      color: #2a3f54;
+    }
+    
+    .content-box {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .tabs {
+      display: flex;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #eee;
+    }
+    
+    .tab {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin-right: 1rem;
+      border-bottom: 3px solid transparent;
+    }
+    
+    .tab.active {
+      border-bottom-color: #0a84ff;
+      font-weight: bold;
+    }
+    
+    .demo-container {
+      margin: 2rem 0;
+    }
+    
+    /* PFLX Class Tools Widget (16:6 Aspect Ratio) */
+    .pflx-embed-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 37.5%; /* 6/16 = 0.375 or 37.5% */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .pflx-embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    pre {
+      background-color: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+    
+    .copy-button {
+      background-color: #0a84ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+      margin-bottom: 1rem;
+    }
+    
+    .copy-button:hover {
+      background-color: #0060df;
+    }
+    
+    .note {
+      background-color: #e8f4ff;
+      padding: 1rem;
+      border-left: 4px solid #0a84ff;
+      margin: 1.5rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>PFLX Class Tools - Embed Code</h1>
+  
+  <div class="content-box">
+    <h2>Demo</h2>
+    <p>Here's how the widget looks when embedded:</p>
+    
+    <div class="tabs">
+      <div class="tab active" onclick="switchDemo('vercel')">Vercel (Production)</div>
+      <div class="tab" onclick="switchDemo('local')">Local Development</div>
+    </div>
+    
+    <div class="demo-container" id="vercel-demo">
+      <div class="pflx-embed-container">
+        <iframe 
+          src="https://pflx-class-tools.vercel.app/?embed=true" 
+          frameborder="0" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    
+    <div class="demo-container" id="local-demo" style="display: none;">
+      <div class="pflx-embed-container">
+        <iframe 
+          src="http://localhost:3000/?embed=true" 
+          frameborder="0" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+  
+  <div class="content-box">
+    <h2>Embed Code</h2>
+    <p>Copy and paste this code to embed the widget on your website:</p>
+    
+    <button class="copy-button" onclick="copyEmbedCode()">Copy Code</button>
+    
+    <pre><code id="embed-code">&lt;!-- PFLX Class Tools Widget (16:6 Aspect Ratio) --&gt;
+&lt;style&gt;
+  .pflx-embed-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 37.5%; /* 6/16 = 0.375 or 37.5% */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pflx-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+&lt;/style&gt;
+
+&lt;div class="pflx-embed-container"&gt;
+  &lt;iframe 
+    src="https://pflx-class-tools.vercel.app/?embed=true" 
+    frameborder="0" 
+    allowfullscreen&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+  
+  <div class="content-box">
+    <h2>How to Use</h2>
+    <ol>
+      <li><strong>Copy the code</strong> - Use the "Copy Code" button above</li>
+      <li><strong>Paste into your website</strong> - Add the code to your HTML page where you want the widget to appear</li>
+      <li><strong>Customize (optional)</strong> - Adjust the width, border radius, or other CSS properties as needed</li>
+    </ol>
+    
+    <div class="note">
+      <strong>Note:</strong> The widget maintains a 16:6 aspect ratio on all screen sizes. This works well for header sections or full-width content areas.
+    </div>
+  </div>
+  
+  <script>
+    function switchDemo(type) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.demo-container').forEach(demo => demo.style.display = 'none');
+      
+      document.querySelector(`.tab[onclick="switchDemo('${type}')"]`).classList.add('active');
+      document.getElementById(`${type}-demo`).style.display = 'block';
+    }
+    
+    function copyEmbedCode() {
+      const codeEl = document.getElementById('embed-code');
+      const range = document.createRange();
+      range.selectNode(codeEl);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      
+      const button = document.querySelector('.copy-button');
+      const originalText = button.textContent;
+      button.textContent = 'Copied!';
+      setTimeout(() => {
+        button.textContent = originalText;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/students.csv", "dest": "/students.csv" },
+    { "src": "/template.csv", "dest": "/template.csv" },
+    { "src": "/static/media/students.csv", "dest": "/static/media/students.csv" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/asset-manifest.json", "dest": "/asset-manifest.json" },
+    { "src": "/embed-code.html", "dest": "/embed-code.html" },
+    { "src": "/test-embed.html", "dest": "/test-embed.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET" },
+        { "key": "X-Frame-Options", "value": "ALLOW-FROM *" },
+        { "key": "Content-Security-Policy", "value": "frame-ancestors *" }
+      ]
+    }
+  ]
+}
