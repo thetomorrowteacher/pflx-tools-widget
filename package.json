@@ -5,7 +5,7 @@
   "homepage": "/",
   "main": "index.js",
   "scripts": {
-    "prestart": "cp -f public/students.csv public/static/media/students.csv 2>/dev/null || mkdir -p public/static/media && cp -f public/students.csv public/static/media/students.csv 2>/dev/null || echo 'CSV setup complete'", 
+    "prestart": "cp -f public/students.csv public/static/media/students.csv 2>/dev/null || mkdir -p public/static/media && cp -f public/students.csv public/static/media/students.csv 2>/dev/null || echo 'CSV setup complete'",
     "start": "react-scripts start",
     "build": "react-scripts build && cp -f public/students.csv build/students.csv && cp -f public/template.csv build/template.csv && mkdir -p build/static/media && cp -f public/students.csv build/static/media/students.csv",
     "test": "react-scripts test",
@@ -19,7 +19,7 @@
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "tailwindcss": "^3.3.1"
   },
   "browserslist": {
